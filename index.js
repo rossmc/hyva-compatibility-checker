@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { glob } from 'glob';
 import fs from 'fs';
 import path from 'path';
@@ -145,11 +147,15 @@ async function main() {
         "    npm start /path/to/magento\n"
     );
 
-    const magentoRoot = process.argv[2] || path.join(process.cwd(), '..');
-    const configPath = path.join(magentoRoot, 'app', 'etc', 'config.php');
+    let magentoRoot = process.argv[2] || path.join(process.cwd(), '..');
+    let configPath = path.join(magentoRoot, 'app', 'etc', 'config.php');
     if (!fs.existsSync(configPath)) {
-        console.log("\u274C Error: app/etc/config.php not found. Make sure you're in the Magento 2 root directory or pass the correct path.");
-        process.exit(1);
+        magentoRoot = process.cwd();
+        configPath = path.join(magentoRoot, 'app', 'etc', 'config.php');
+        if (!fs.existsSync(configPath)) {
+            console.log("\u274C Error: app/etc/config.php not found. Make sure you're in the Magento 2 root directory or pass the correct path.");
+            process.exit(1);
+        }
     }
     console.log("\u2705 Retrieved app/etc/config.php");
 
@@ -210,6 +216,14 @@ async function main() {
     console.log('\n');
     console.log(`Results have been written to the directory:`);
     console.log(` \x1b]8;;file://${reportsPath}\x07${reportsPath}\x1b]8;;\x07`);
+    console.log(`\n`);
+    console.log(`Next steps:
+    - Review the reports to identify the modules that require Hyva compatibility modules.
+    - Checkout the \x1b]8;;https://gitlab.hyva.io/hyva-public/module-tracker/\x07Hyva Compatibility Module Tracker\x1b]8;;\x07 to see if there is already a Hyva compatibility modules available which can be used.
+    - If there is no Hyva compatibility modules available, you can either:
+        - Create a new issue in the \x1b]8;;https://gitlab.hyva.io/hyva-public/module-tracker/\x07Hyva Compatibility Module Tracker\x1b]8;;\x07 to request a new Hyva compatibility modules.
+        - Try to create one yourself, see \x1b]8;;https://docs.hyva.io/hyva-themes/compatibility-modules/index.html\x07Hyvä documentation\x1b]8;;\x07 for more information.
+    `);
 }
 
 process.on('unhandledRejection', (reason, promise) => {
