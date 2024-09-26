@@ -1,0 +1,26 @@
+{
+  "name": "hyva-compatibility-checker",
+  "version": "1.0.0",
+  "description": "A Node.js CLI tool to identify Magento 2 modules requiring Hyvä compatibility modules",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "magento2",
+    "hyva",
+    "compatibility",
+    "module",
+    "checker"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "dependencies": {
+    "glob": "^11.0.0",
+    "ora": "^8.1.0"
+  }
+}
