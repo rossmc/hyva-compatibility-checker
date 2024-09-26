@@ -1,6 +1,6 @@
 # Hyva Compatibility Checker
 
-A Node.js application to identify Magento modules requiring Hyva compatibility.
+A Node.js application to identify Magento modules requiring Hyva compatibility. Useful for you next luma to Hyvä project on Magento 2.
 
 ## Description
 
