@@ -44,6 +44,7 @@ If there is no Hyva compatibility modules available, you can create either:
 
 ```
 cd hyva-compatibility-checker
+npm install
 npm install -g .
 ```
 
