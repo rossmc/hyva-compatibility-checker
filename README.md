@@ -10,14 +10,17 @@ The reports will give you information such as:
 - Module Name
 - Relative Path
 - Has Compatibility Module Installed
-- JS File list (in JSON report only)
+- JS File Count (in CSV report only)
 - JS Line Count
+- JS File list (in JSON report only)
 - JS Files size (in JSON report only)
-- PHTML File list (in JSON report only)
+- PHTML File Count (in CSV report only)
 - PHTML Line Count
+- PHTML File list (in JSON report only)
 - PHTML Files size (in JSON report only)
-- Layout File list (in JSON report only)
+- Layout File Count (in CSV report only)
 - Layout Line Count
+- Layout File list (in JSON report only)
 - Layout Files size (in JSON report only)
 
 ## Installation & Usage
